@@ -1,0 +1,5 @@
+PS1='[NOVAsom6_SDK \u@\h \W]$ '
+export PATH=$PATH:/Devel/NOVAsom6_SDK/Xcompiler/Xc_Novasis_4.9.2_hfp_glibc/usr/bin
+export CROSS_COMPILE=arm-linux-
+export ARCH=arm
+export X_ARM_CROSS=NovaSOM6_SDK_Cross_Compiler

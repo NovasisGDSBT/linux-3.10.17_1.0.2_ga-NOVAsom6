@@ -1,0 +1,5 @@
+make imx6q-novasom.dtb
+make imx6dl-novasom.dtb
+make imx6dl-7B-novasom.dtb
+make imx6q-NOWIFI-novasom.dtb
+make imx6q-GDS-novasom.dtb

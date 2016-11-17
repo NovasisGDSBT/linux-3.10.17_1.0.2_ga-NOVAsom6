@@ -1,0 +1,46 @@
+/*
+ * Copyright 2014 John Weber
+ * Copyright 2013 Boundary Devices
+ * Copyright 2012 Freescale Semiconductor, Inc.
+ * Copyright 2011 Linaro Ltd.
+ *
+ * The code contained herein is licensed under the GNU General Public
+ * License. You may obtain a copy of the GNU General Public License
+ * Version 2 or later at the following locations:
+ *
+ * http://www.opensource.org/licenses/gpl-license.html
+ * http://www.gnu.org/copyleft/gpl.html
+ */
+
+/dts-v1/;
+
+#include <dt-bindings/interrupt-controller/irq.h>
+#include "imx6q.dtsi"
+#include "imx6qdl-novasom.dtsi"
+
+/ {
+        model = "NOVAsom8 i.MX6 Quad Board";
+        compatible = "NOVAsom8,imx6q-novasis", "fsl,imx6q" , "fsl,imx6qdl-sabreauto";
+};
+
+&mxcfb1 {
+	status = "okay";
+};
+
+#if 0
+&mxcfb2 {
+	status = "okay";
+};
+
+&mxcfb3 {
+	status = "okay";
+};
+
+&mxcfb4 {
+	status = "okay";
+};
+#endif
+
+&sata {
+	status = "okay";
+};
