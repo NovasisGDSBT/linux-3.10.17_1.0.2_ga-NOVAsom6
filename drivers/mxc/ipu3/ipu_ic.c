@@ -347,7 +347,7 @@ int _ipu_ic_init_prpvf(struct ipu_soc *ipu, ipu_channel_params_t *params,
 	else
 		ic_conf |= IC_CONF_RWS_EN;
 
-	printk("%s : ic_conf = 0x%08x\n",__FUNCTION__ , ic_conf);
+	//printk("%s : ic_conf = 0x%08x\n",__FUNCTION__ , ic_conf);
 	ipu_ic_write(ipu, ic_conf, IC_CONF);
 
 	return ret;
@@ -580,7 +580,7 @@ int _ipu_ic_init_pp(struct ipu_soc *ipu, ipu_channel_params_t *params)
 		ic_conf &= ~IC_CONF_PP_CMB;
 	}
 
-	printk("%s : ic_conf = 0x%08x\n",__FUNCTION__ , ic_conf);
+	//printk("%s : ic_conf = 0x%08x\n",__FUNCTION__ , ic_conf);
 	ipu_ic_write(ipu, ic_conf, IC_CONF);
 
 	return ret;
