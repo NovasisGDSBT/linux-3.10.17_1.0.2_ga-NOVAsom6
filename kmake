@@ -7,30 +7,12 @@ check_result () {
 	fi
 }
 
-. /Devel/NOVAsom6_SDK/Utils/SourceMe
+. ../../Utils/SourceMe
 make -j32 LOADADDR=0x10008000 uImage 
-check_result $?
 make modules
-check_result $?
-make imx6q-novasom.dtb
-check_result $?
-make imx6dl-novasom.dtb
-check_result $?
-make imx6dl-7B-novasom.dtb
-check_result $?
-make imx6q-NOWIFI-novasom.dtb
-check_result $?
 make imx6q-GDS-novasom.dtb
-check_result $?
 
 pushd ../../Deploy
-rm NOVAsom6Kernel *.dtb uImage
-ln -s ../Kernel/linux-3.10.17_1.0.2_ga-NOVAsom6/arch/arm/boot/uImage
-ln -s ../Kernel/linux-3.10.17_1.0.2_ga-NOVAsom6/arch/arm/boot/dts/imx6q-novasom.dtb
-ln -s ../Kernel/linux-3.10.17_1.0.2_ga-NOVAsom6/arch/arm/boot/dts/imx6dl-novasom.dtb
-ln -s ../Kernel/linux-3.10.17_1.0.2_ga-NOVAsom6/arch/arm/boot/dts/imx6dl-7B-novasom.dtb
-ln -s ../Kernel/linux-3.10.17_1.0.2_ga-NOVAsom6/arch/arm/boot/dts/imx6q-NOWIFI-novasom.dtb
 ln -s ../Kernel/linux-3.10.17_1.0.2_ga-NOVAsom6/arch/arm/boot/dts/imx6q-GDS-novasom.dtb
 popd
-echo 0 > /tmp/result
 
