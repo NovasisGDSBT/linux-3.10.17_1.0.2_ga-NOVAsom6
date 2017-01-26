@@ -162,6 +162,9 @@ static int imx2_wdt_open(struct inode *inode, struct file *file)
 
 static int imx2_wdt_close(struct inode *inode, struct file *file)
 {
+/*
+ * Modified to disable the nowayout functionality
+ * Filippo
 	if (test_bit(IMX2_WDT_EXPECT_CLOSE, &imx2_wdt.status) && !nowayout)
 		imx2_wdt_stop();
 	else {
@@ -169,6 +172,9 @@ static int imx2_wdt_close(struct inode *inode, struct file *file)
 			"Unexpected close: Expect reboot!\n");
 		imx2_wdt_ping();
 	}
+*/
+	imx2_wdt_stop();
+	printk("%s : wdt stopped\n",__func__);
 
 	clear_bit(IMX2_WDT_EXPECT_CLOSE, &imx2_wdt.status);
 	clear_bit(IMX2_WDT_STATUS_OPEN, &imx2_wdt.status);
@@ -260,6 +266,7 @@ static int __init imx2_wdt_probe(struct platform_device *pdev)
 	int ret;
 	struct resource *res;
 
+	nowayout = 0 ;
 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
 	imx2_wdt.base = devm_ioremap_resource(&pdev->dev, res);
 	if (IS_ERR(imx2_wdt.base))
